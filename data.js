@@ -7,24 +7,24 @@ const works = {
   {
     title: "madoka_001",
     images: [
-      "images/madoka_001.jpg",
-      "images/madoka_001_hd.jpg"
+      "madoka_001.jpg",
+      "madoka_001_hd.jpg"
     ]
   },
 
   {
     title: "madoka_002",
     images: [
-      "images/madoka_002.jpg",
-      "images/madoka_002_hd.jpg"
+      "madoka_002.jpg",
+      "madoka_002_hd.jpg"
     ]
   },
 
   {
     title: "madoka_003",
     images: [
-      "images/madoka_003.jpg",
-      "images/madoka_003_hd.jpg"
+      "madoka_003.jpg",
+      "madoka_003_hd.jpg"
     ]
   }
 ]
@@ -36,24 +36,24 @@ const works = {
     {
       title: "railgun_001",
       images: [
-        "images/railgun_001.jpg",
-        "images/railgun_001_hd.jpg"
+        "railgun_001.jpg",
+        "railgun_001_hd.jpg"
       ]
     },
 
     {
       title: "railgun_002",
       images: [
-        "images/railgun_002.jpg",
-        "images/railgun_002_hd.jpg"
+        "railgun_002.jpg",
+        "railgun_002_hd.jpg"
       ]
     },
 
    {
       title: "railgun_003",
       images: [
-        "images/railgun_003.jpg",
-        "images/railgun_003_hd.jpg"
+        "railgun_003.jpg",
+        "railgun_003_hd.jpg"
       ]
     }
   ]
@@ -65,8 +65,8 @@ const works = {
       {
         title: "maidragon_001",
         images: [
-          "images/maidragon_001.jpg",
-          "images/maidragon_001_hd.jpg"
+          "maidragon_001.jpg",
+          "maidragon_001_hd.jpg"
         ]
       }
     ]
@@ -79,8 +79,8 @@ const works = {
       {
         title: "onimai_001",
         images: [
-          "images/onimai_001.jpg",
-          "images/onimai_001_hd.jpg"
+          "onimai_001.jpg",
+          "onimai_001_hd.jpg"
         ]
       }
     ]
@@ -93,8 +93,8 @@ const works = {
       {
         title: "wataten_001",
         images: [
-          "images/wataten_001.jpg",
-          "images/wataten_001_hd.jpg"
+          "wataten_001.jpg",
+          "wataten_001_hd.jpg"
         ]
       }
     ]
@@ -107,8 +107,8 @@ k_on: {
     {
       title: "k_on_001",
       images: [
-        "images/k_on_001.jpg",
-        "images/k_on_001_hd.jpg"
+        "k_on_001.jpg",
+        "k_on_001_hd.jpg"
       ]
     }
   ]
