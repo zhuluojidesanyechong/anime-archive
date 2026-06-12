@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>动画档案</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #faf7ff;
+}
+
+.header {
+  text-align: center;
+  padding: 30px;
+  font-size: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+
+.info {
+  padding: 12px;
+  text-align: center;
+  font-size: 16px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+  🌸 作品入口
+</div>
+
+<div class="grid">
+
+  <!-- 魔法少女小圆 -->
+  <a class="card" href="album.html?work=madoka">
+    <img src="images/madoka_001.jpg">
+    <div class="info">魔法少女小圆</div>
+  </a>
+
+  <!-- 某科学的超电磁炮 -->
+  <a class="card" href="album.html?work=railgun">
+    <img src="images/railgun_001.jpg">
+    <div class="info">御坂和黑子</div>
+  </a>
+
+  <!-- 小林家的龙女仆 -->
+  <a class="card" href="album.html?work=maidragon">
+    <img src="images/maidragon_001.jpg">
+    <div class="info">小林家的龙女仆</div>
+  </a>
+
+  <!-- 别当欧尼酱了！ -->
+  <a class="card" href="album.html?work=onimai">
+    <img src="images/onimai_001.jpg">
+    <div class="info">不当欧尼酱了</div>
+  </a>
+
+<!-- 天使降临到我身边 -->
+  <a class="card" href="album.html?work=wataten">
+    <img src="images/wataten_001.jpg">
+    <div class="info">天使降临到我身边</div>
+  </a>
+
+<!-- 轻音少女 -->
+<a class="card" href="album.html?work=k_on">
+  <img src="images/k_on_001.jpg">
+  <div class="info">轻音少女</div>
+</a>
+</div>
+
+</body>
+</html>

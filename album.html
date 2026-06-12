@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Album</title>
+
+<style>
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:#111;
+    color:white;
+}
+
+h1{
+    text-align:center;
+    padding:20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+    gap:15px;
+    padding:15px;
+}
+
+.grid img{
+    width:100%;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.9);
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.main-img{
+    max-width:90%;
+    max-height:70vh;
+    border-radius:10px;
+}
+
+.close{
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.thumb-bar{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+    overflow-x:auto;
+    max-width:90%;
+}
+
+.thumb-bar img{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:6px;
+    opacity:0.5;
+    cursor:pointer;
+}
+
+.thumb-bar img.active{
+    opacity:1;
+    outline:2px solid white;
+}
+
+.btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:30px;
+    cursor:pointer;
+    user-select:none;
+}
+
+.prev{ left:10px; }
+.next{ right:10px; }
+
+</style>
+</head>
+
+<body>
+
+<!-- 顶部导航 -->
+<div style="
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 999;
+">
+  <a href="index.html"
+     style="background:rgba(0,0,0,0.5);padding:6px 10px;border-radius:6px;color:white;text-decoration:none;">
+     ← 首页
+  </a>
+</div>
+
+<!-- 标题 -->
+<h1 id="title"></h1>
+
+<!-- 缩略图 -->
+<div class="grid" id="grid"></div>
+
+<!-- 弹窗 -->
+<div class="modal" id="modal">
+
+    <div class="close" onclick="closeModal()">✕</div>
+
+    <div class="btn prev" onclick="changeImg(-1)">❮</div>
+
+    <img class="main-img" id="mainImg">
+
+    <a id="downloadBtn"
+       href="#"
+       style="
+         position:absolute;
+         bottom:20px;
+         right:20px;
+         background:rgba(0,0,0,0.6);
+         color:white;
+         padding:6px 10px;
+         border-radius:6px;
+         text-decoration:none;
+       ">
+       ⬇ 下载
+    </a>
+
+    <div class="btn next" onclick="changeImg(1)">❯</div>
+
+    <div class="thumb-bar" id="thumbBar"></div>
+
+</div>
+
+<script src="data.js"></script>
+
+<script>
+
+const params = new URLSearchParams(location.search);
+const workName = params.get("work");
+const work = works[workName];
+
+if(!work){
+    document.body.innerHTML="<h1>作品不存在</h1>";
+    throw new Error("作品不存在");
+}
+
+document.getElementById("title").textContent = work.title;
+
+const albums = work.albums;
+
+const grid = document.getElementById("grid");
+const modal = document.getElementById("modal");
+const mainImg = document.getElementById("mainImg");
+const thumbBar = document.getElementById("thumbBar");
+const downloadBtn = document.getElementById("downloadBtn");
+
+let albumIndex = 0;
+let imageIndex = 0;
+
+/* 初始化封面 */
+albums.forEach((album,i)=>{
+    const img = document.createElement("img");
+    img.src = album.images[0];
+    img.onclick = ()=>openAlbum(i);
+    grid.appendChild(img);
+});
+
+/* 打开相册 */
+function openAlbum(i){
+    albumIndex = i;
+    imageIndex = 0;
+    modal.style.display = "flex";
+    update();
+}
+
+/* 更新 */
+function update(){
+
+    const album = albums[albumIndex];
+
+    mainImg.src = album.images[imageIndex];
+
+    downloadBtn.onclick = () => {
+        const url = album.images[imageIndex];
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = url.split("/").pop();
+        a.click();
+    };
+
+    thumbBar.innerHTML = "";
+
+    album.images.forEach((src,i)=>{
+
+        const img = document.createElement("img");
+        img.src = src;
+
+        if(i === imageIndex){
+            img.classList.add("active");
+        }
+
+        img.onclick = () => {
+            imageIndex = i;
+            update();
+        };
+
+        thumbBar.appendChild(img);
+    });
+}
+
+/* 切换 */
+function changeImg(step){
+
+    const album = albums[albumIndex];
+
+    imageIndex =
+        (imageIndex + step + album.images.length)
+        % album.images.length;
+
+    update();
+}
+
+/* 关闭 */
+function closeModal(){
+    modal.style.display = "none";
+}
+
+/* 滑动 */
+let startX = 0;
+
+mainImg.addEventListener("touchstart",e=>{
+    startX = e.touches[0].clientX;
+});
+
+mainImg.addEventListener("touchend",e=>{
+    const diff = e.changedTouches[0].clientX - startX;
+
+    if(Math.abs(diff)>50){
+        changeImg(diff>0?-1:1);
+    }
+});
+
+</script>
+
+</body>
+</html>
