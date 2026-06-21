@@ -107,8 +107,8 @@ k_on: {
     {
       title: "k_on_001",
       images: [
-        "k_on_001.jpg",
-        "k_on_001_hd.jpg"
+        "images/k_on_001.jpg",
+        "images/k_on_001_hd.jpg"
       ]
     }
   ]
