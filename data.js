@@ -7,24 +7,24 @@ const works = {
   {
     title: "madoka_001",
     images: [
-      "madoka_001.jpg",
-      "madoka_001_hd.jpg"
+      "images/madoka_001.jpg",
+      "images/madoka_001_hd.jpg"
     ]
   },
 
   {
     title: "madoka_002",
     images: [
-      "madoka_002.jpg",
-      "madoka_002_hd.jpg"
+      "images/madoka_002.jpg",
+      "images/madoka_002_hd.jpg"
     ]
   },
 
   {
     title: "madoka_003",
     images: [
-      "madoka_003.jpg",
-      "madoka_003_hd.jpg"
+      "images/madoka_003.jpg",
+      "images/madoka_003_hd.jpg"
     ]
   }
 ]
@@ -36,24 +36,24 @@ const works = {
     {
       title: "railgun_001",
       images: [
-        "railgun_001.jpg",
-        "railgun_001_hd.jpg"
+        "images/railgun_001.jpg",
+        "images/railgun_001_hd.jpg"
       ]
     },
 
     {
       title: "railgun_002",
       images: [
-        "railgun_002.jpg",
-        "railgun_002_hd.jpg"
+        "images/railgun_002.jpg",
+        "images/railgun_002_hd.jpg"
       ]
     },
 
    {
       title: "railgun_003",
       images: [
-        "railgun_003.jpg",
-        "railgun_003_hd.jpg"
+        "images/railgun_003.jpg",
+        "images/railgun_003_hd.jpg"
       ]
     }
   ]
@@ -63,10 +63,10 @@ const works = {
 
     albums: [
       {
-        title: "maidragon_001",
+        title: "images/maidragon_001",
         images: [
-          "maidragon_001.jpg",
-          "maidragon_001_hd.jpg"
+          "images/maidragon_001.jpg",
+          "images/maidragon_001_hd.jpg"
         ]
       }
     ]
@@ -77,10 +77,10 @@ const works = {
 
     albums: [
       {
-        title: "onimai_001",
+        title: "images/onimai_001",
         images: [
-          "onimai_001.jpg",
-          "onimai_001_hd.jpg"
+          "images/onimai_001.jpg",
+          "images/onimai_001_hd.jpg"
         ]
       }
     ]
@@ -93,8 +93,8 @@ const works = {
       {
         title: "wataten_001",
         images: [
-          "wataten_001.jpg",
-          "wataten_001_hd.jpg"
+          "images/wataten_001.jpg",
+          "images/wataten_001_hd.jpg"
         ]
       }
     ]
