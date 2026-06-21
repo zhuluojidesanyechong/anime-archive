@@ -63,7 +63,7 @@ const works = {
 
     albums: [
       {
-        title: "images/maidragon_001",
+        title: "maidragon_001",
         images: [
           "images/maidragon_001.jpg",
           "images/maidragon_001_hd.jpg"
@@ -77,7 +77,7 @@ const works = {
 
     albums: [
       {
-        title: "images/onimai_001",
+        title: "onimai_001",
         images: [
           "images/onimai_001.jpg",
           "images/onimai_001_hd.jpg"
