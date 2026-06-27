@@ -58,6 +58,64 @@ const works = {
     }
   ]
 },
+ luckystar: {
+  title: "幸运星",
+
+  albums: [
+    {
+      title: "luckystar_001",
+      images: [
+        "images/luckystar_001.jpg",
+        "images/luckystar_001_hd.jpg"
+      ]
+    },
+
+    {
+      title: "luckystar_002",
+      images: [
+        "images/luckystar_002.jpg",
+        "images/luckystar_002_hd.jpg"
+      ]
+    },
+
+   {
+      title: "luckystar_003",
+      images: [
+        "images/luckystar_003.jpg",
+        "images/luckystar_003_hd.jpg"
+      ]
+    }
+  ]
+},
+yyhgl: {
+  title: "摇曳百合",
+
+  albums: [
+    {
+      title: "yyhgl_001",
+      images: [
+        "images/yyhgl_001.jpg",
+        "images/yyhgl_001_hd.jpg"
+      ]
+    },
+
+    {
+      title: "yyhgl_002",
+      images: [
+        "images/yyhgl_002.jpg",
+        "images/yyhgl_002_hd.jpg"
+      ]
+    },
+
+   {
+      title: "yyhgl_003",
+      images: [
+        "images/yyhgl_003.jpg",
+        "images/yyhgl_003_hd.jpg"
+      ]
+    }
+  ]
+},
   maidragon: {
     title: "小林家的龙女仆",
 
@@ -73,7 +131,7 @@ const works = {
   },
 
   onimai: {
-    title: "不当欧尼酱了",
+    title: "别当欧尼酱了",
 
     albums: [
       {
@@ -99,7 +157,151 @@ const works = {
       }
     ]
   },
+precure: {
+  title: "光之美少女",
 
+  albums: [
+    {
+      title: "precure_001",
+      images: [
+        "images/precure_001.jpg",
+        "images/precure_001_hd.jpg"
+      ]
+    },
+
+    {
+      title: "precure_002",
+      images: [
+        "images/precure_002.jpg",
+        "images/precure_002_hd.jpg"
+      ]
+    },
+
+   {
+      title: "precure_003",
+      images: [
+        "images/precure_003.jpg",
+        "images/precure_003_hd.jpg"
+      ]
+    }
+  ]
+},
+itoar: {
+  title: "请问您今天要来点兔子吗",
+
+  albums: [
+    {
+      title: "itoar_001",
+      images: [
+        "images/itoar_001.jpg",
+        "images/itoar_001_hd.jpg"
+      ]
+    },
+
+    {
+      title: "itoar_002",
+      images: [
+        "images/itoar_002.jpg",
+        "images/itoar_002_hd.jpg"
+      ]
+    },
+
+   {
+      title: "itoar_003",
+      images: [
+        "images/itoar_003.jpg",
+        "images/itoar_003_hd.jpg"
+      ]
+    }
+  ]
+},
+lovelive: {
+  title: "lovelive",
+
+  albums: [
+    {
+      title: "lovelive_001",
+      images: [
+        "images/lovelive_001.jpg",
+        "images/lovelive_001_hd.jpg"
+      ]
+    },
+
+    {
+      title: "lovelive_002",
+      images: [
+        "images/lovelive_002.jpg",
+        "images/lovelive_002_hd.jpg"
+      ]
+    },
+
+   {
+      title: "lovelive_003",
+      images: [
+        "images/lovelive_003.jpg",
+        "images/lovelive_003_hd.jpg"
+      ]
+    }
+  ]
+},
+touhou_project: {
+  title: "东方project",
+
+  albums: [
+    {
+      title: "touhou_project_001",
+      images: [
+        "images/touhou_project_001.jpg",
+        "images/touhou_project_001_hd.jpg"
+      ]
+    },
+
+    {
+      title: "touhou_project_002",
+      images: [
+        "images/touhou_project_002.jpg",
+        "images/touhou_project_002_hd.jpg"
+      ]
+    },
+
+   {
+      title: "touhou_project_003",
+      images: [
+        "images/touhou_project_003.jpg",
+        "images/touhou_project_003_hd.jpg"
+      ]
+    }
+  ]
+},
+urgirl: {
+  title: "少女革命",
+
+  albums: [
+    {
+      title: "urgirl_001",
+      images: [
+        "images/urgirl_001.jpg",
+        "images/urgirl_001_hd.jpg"
+      ]
+    },
+
+    {
+      title: "urgirl_002",
+      images: [
+        "images/urgirl_002.jpg",
+        "images/urgirl_002_hd.jpg"
+      ]
+    },
+
+   {
+      title: "urgirl_003",
+      images: [
+        "images/urgirl_003.jpg",
+        "images/urgirl_003_hd.jpg"
+      ]
+    }
+  ]
+},
 k_on: {
   title: "轻音少女",
 

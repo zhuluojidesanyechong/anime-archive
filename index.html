@@ -2,100 +2,145 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>动画档案</title>
-
 <style>
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: #faf7ff;
+body{margin:0;font-family:sans-serif;background:#faf7ff;color:#333}
+.header{text-align:center;padding:28px 20px 10px}
+.header h1{margin:0;font-size:28px}
+.subtitle{margin-top:8px;color:#666}
+.notice{max-width:900px;margin:20px auto;padding:0 20px}
+.notice-item{background:#fff;border-radius:12px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);overflow:hidden}
+.search-box{
+  max-width:900px;
+  margin:20px auto;
+  padding:0 20px;
 }
 
-.header {
-  text-align: center;
-  padding: 30px;
-  font-size: 24px;
-}
+.search-box input{
+  width:100%;
+  box-sizing:border-box;
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
+  padding:14px 18px;
 
-.card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: 0.2s;
-  text-decoration: none;
-  color: inherit;
-}
+  border:none;
+  border-radius:12px;
 
-.card:hover {
-  transform: translateY(-5px);
-}
+  font-size:16px;
 
-.card img {
-  width: 100%;
-  display: block;
-}
+  outline:none;
 
-.info {
-  padding: 12px;
-  text-align: center;
-  font-size: 16px;
+  background:white;
+   box-shadow:0 2px 8px rgba(0,0,0,.05);
 }
+.search-box input:focus{
+
+    box-shadow:0 0 0 3px rgba(180,140,255,.2);
+
+}
+.notice-item.tip{background:#fff9df}
+.notice-title{padding:15px 18px;font-weight:bold;cursor:pointer;user-select:none}
+.notice-content{padding:0 18px 18px;line-height:1.8}
+.hide{display:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;padding:20px}
+.card{background:#fff;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;transition:.2s;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.card:hover{transform:translateY(-5px)}
+.card img{width:100%;display:block}
+.info{text-align:center;padding:12px}
 </style>
-
 </head>
-
 <body>
-
 <div class="header">
-  🌸 作品入口
+<h1>🌸 图片收藏</h1>
+<div class="subtitle">收录我喜欢的作品、角色与图片。</div>
+</div>
+<div class="search-box">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="🔍 搜索作品……"
+    oninput="searchWorks()">
+</div>
+
+<div class="notice">
+<div class="notice-item tip">
+<div class="notice-title" data-title="💡 图片说明" onclick="toggleNotice(this)">▼ 💡 图片说明</div>
+<div class="notice-content">
+<p>每张图片通常提供两个版本：</p>
+<p><b>① 原图（默认封面）</b><br>保留原始画质与细节，默认作为封面展示。</p>
+<p><b>② AI 放大高清版</b><br>提升分辨率的同时，可能会改变部分原图质感。两个版本各有特点，可根据自己的喜好选择下载。</p>
+</div>
+</div>
+
+<div class="notice-item">
+<div class="notice-title" data-title="关于本站" onclick="toggleNotice(this)">▶ 关于本站</div>
+<div class="notice-content hide">
+<p>本站主要收录我个人喜欢的女性角色、角色组合及相关图片。</p>
+<p>收录内容以个人兴趣和整理习惯为标准，并不代表对作品类型或角色关系的官方定义。部分作品本身并非以此为主题，只是其中存在我喜欢的角色或角色互动，因此也会收录相关图片，也包含部分单人图片。</p>
+<p>图片大多来自官方公开发布的宣传图、杂志图等；对于《东方Project》等官方图片相对较少的作品，则会收录较多同人作品。</p>
+<p>本站仅用于个人整理与分享。如有图片涉及版权问题，请联系我，我会及时处理。</p>
+</div>
+</div>
 </div>
 
 <div class="grid">
-
-  <!-- 魔法少女小圆 -->
-  <a class="card" href="album.html?work=madoka">
-    <img src="images/madoka_001.jpg">
-    <div class="info">魔法少女小圆</div>
-  </a>
-
-  <!-- 某科学的超电磁炮 -->
-  <a class="card" href="album.html?work=railgun">
-    <img src="images/railgun_001.jpg">
-    <div class="info">御坂和黑子</div>
-  </a>
-
-  <!-- 小林家的龙女仆 -->
-  <a class="card" href="album.html?work=maidragon">
-    <img src="images/maidragon_001.jpg">
-    <div class="info">小林家的龙女仆</div>
-  </a>
-
-  <!-- 别当欧尼酱了！ -->
-  <a class="card" href="album.html?work=onimai">
-    <img src="images/onimai_001.jpg">
-    <div class="info">不当欧尼酱了</div>
-  </a>
-
-<!-- 天使降临到我身边 -->
-  <a class="card" href="album.html?work=wataten">
-    <img src="images/wataten_001.jpg">
-    <div class="info">天使降临到我身边</div>
-  </a>
-
-<!-- 轻音少女 -->
-<a class="card" href="album.html?work=k_on">
-  <img src="images/k_on_001.jpg">
-  <div class="info">轻音少女</div>
-</a>
+<a class="card" href="album.html?work=madoka"><img src="images/madoka_001.jpg"><div class="info">魔法少女小圆</div></a>
+<a class="card" href="album.html?work=railgun"><img src="images/railgun_001.jpg"><div class="info">某科学的超电磁炮</div></a>
+<a class="card" href="album.html?work=yyhgl"><img src="images/yyhgl_001.jpg"><div class="info">摇曳百合</div></a>
+<a class="card" href="album.html?work=wataten"><img src="images/wataten_001.jpg"><div class="info">天使降临到我身边</div></a>
+<a class="card" href="album.html?work=lovelive"><img src="images/lovelive_001.jpg"><div class="info">lovelive</div></a>
+<a class="card" href="album.html?work=touhou_project"><img src="images/touhou_project_001.jpg"><div class="info">东方project</div></a>
+<a class="card" href="album.html?work=precure"><img src="images/precure_001.jpg"><div class="info">光之美少女</div></a>
+<a class="card" href="album.html?work=urgirl"><img src="images/urgirl_001.jpg"><div class="info">少女革命</div></a>
+<a class="card" href="album.html?work=onimai"><img src="images/onimai_001.jpg"><div class="info">别当欧尼酱了</div></a>
+<a class="card" href="album.html?work=k_on"><img src="images/k_on_001.jpg"><div class="info">轻音少女</div></a>
+<a class="card" href="album.html?work=itoar"><img src="images/itoar_001.jpg"><div class="info">请问您今天想来点兔子吗</div></a>
+<a class="card" href="album.html?work=luckystar"><img src="images/luckystar_001.jpg"><div class="info">幸运星</div></a>
+<a class="card" href="album.html?work=maidragon"><img src="images/maidragon_001.jpg"><div class="info">小林家的龙女仆</div></a>
 </div>
+<p id="noResult"
+   style="display:none;
+          text-align:center;
+          color:#888;
+          padding:30px;">
+没有找到相关作品～
+</p>
+<script>
+function toggleNotice(title){
+ const c=title.nextElementSibling;
+ c.classList.toggle("hide");
+ title.textContent=(c.classList.contains("hide")?"▶ ":"▼ ")+title.dataset.title;
+}
+function searchWorks(){
 
+    let keyword = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card){
+
+        let title = card.querySelector(".info").textContent.toLowerCase();
+
+        if(title.includes(keyword)){
+
+            card.style.display = "";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+    let visible = document.querySelectorAll(".card:not([style*='display: none'])");
+
+document.getElementById("noResult").style.display =
+    visible.length ? "none" : "block";
+
+}
+</script>
 </body>
 </html>
