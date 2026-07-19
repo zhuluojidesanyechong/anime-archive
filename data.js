@@ -8,7 +8,8 @@ const works = {
     title: "madoka_001",
     images: [
       "images/madoka_001.jpg",
-      "images/madoka_001_hd.jpg"
+      "images/madoka_001_v1.jpg",
+      "images/madoka_001_v2.jpg"
     ]
   },
 
@@ -16,7 +17,8 @@ const works = {
     title: "madoka_002",
     images: [
       "images/madoka_002.jpg",
-      "images/madoka_002_hd.jpg"
+      "images/madoka_002_v1.jpg",
+       "images/madoka_002_v2.jpg"
     ]
   },
 
@@ -24,7 +26,7 @@ const works = {
     title: "madoka_003",
     images: [
       "images/madoka_003.jpg",
-      "images/madoka_003_hd.jpg"
+      "images/madoka_003_v1.jpg"
     ]
   }
 ]
@@ -37,7 +39,7 @@ const works = {
       title: "railgun_001",
       images: [
         "images/railgun_001.jpg",
-        "images/railgun_001_hd.jpg"
+        "images/railgun_001_v1.jpg"
       ]
     },
 
@@ -45,15 +47,127 @@ const works = {
       title: "railgun_002",
       images: [
         "images/railgun_002.jpg",
-        "images/railgun_002_hd.jpg"
+        "images/railgun_002_v1.jpg"
       ]
     },
-
-   {
+    {
       title: "railgun_003",
       images: [
         "images/railgun_003.jpg",
-        "images/railgun_003_hd.jpg"
+        "images/railgun_003_v1.jpg"
+      ]
+    },
+   {
+      title: "railgun_004",
+      images: [
+        "images/railgun_004.jpg",
+        "images/railgun_004_v1.jpg"
+      ]
+    }
+  ]
+},
+ suofei: {
+  title: "邻家索菲",
+
+  albums: [
+    {
+      title: "suofei_001",
+      images: [
+        "images/suofei_001.jpg",
+        "images/suofei_001_v1.jpg"
+      ]
+    },
+
+    {
+      title: "suofei_002",
+      images: [
+        "images/suofei_002.jpg",
+        "images/suofei_002_v1.jpg"
+      ]
+    },
+    {
+      title: "suofei_003",
+      images: [
+        "images/suofei_003.jpg",
+        "images/suofei_003_v1.jpg"
+      ]
+    },
+   {
+      title: "suofei_004",
+      images: [
+        "images/suofei_004.jpg",
+        "images/suofei_004_v1.jpg"
+      ]
+    }
+  ]
+},
+ elaina: {
+  title: "魔女之旅",
+
+  albums: [
+    {
+      title: "elaina_001",
+      images: [
+        "images/elaina_001.jpg",
+        "images/elaina_001_v1.jpg"
+      ]
+    },
+
+    {
+      title: "elaina_002",
+      images: [
+        "images/elaina_002.jpg",
+        "images/elaina_002_v1.jpg"
+      ]
+    },
+    {
+      title: "elaina_003",
+      images: [
+        "images/elaina_003.jpg",
+        "images/elaina_003_v1.jpg"
+      ]
+    },
+   {
+      title: "elaina_004",
+      images: [
+        "images/elaina_004.jpg",
+        "images/elaina_004_v1.jpg"
+      ]
+    }
+  ]
+},
+ akebisuniform: {
+  title: "明日同学的水手服",
+
+  albums: [
+    {
+      title: "akebisuniform_001",
+      images: [
+        "images/akebisuniform_001.jpg",
+        "images/akebisuniform_001_v1.jpg",
+        "images/akebisuniform_001_v2.jpg"
+      ]
+    },
+
+    {
+      title: "akebisuniform_002",
+      images: [
+        "images/akebisuniform_002.jpg",
+        "images/akebisuniform_002_v1.jpg"
+      ]
+    },
+    {
+      title: "akebisuniform_003",
+      images: [
+        "images/akebisuniform_003.jpg",
+        "images/akebisuniform_003_v1.jpg"
+      ]
+    },
+   {
+      title: "akebisuniform_004",
+      images: [
+        "images/akebisuniform_004.jpg",
+        "images/akebisuniform_004_v1.jpg"
       ]
     }
   ]
@@ -66,7 +180,7 @@ const works = {
       title: "luckystar_001",
       images: [
         "images/luckystar_001.jpg",
-        "images/luckystar_001_hd.jpg"
+        "images/luckystar_001_v1.jpg"
       ]
     },
 
@@ -74,7 +188,7 @@ const works = {
       title: "luckystar_002",
       images: [
         "images/luckystar_002.jpg",
-        "images/luckystar_002_hd.jpg"
+        "images/luckystar_002_v1.jpg"
       ]
     },
 
@@ -82,7 +196,7 @@ const works = {
       title: "luckystar_003",
       images: [
         "images/luckystar_003.jpg",
-        "images/luckystar_003_hd.jpg"
+        "images/luckystar_003_v1.jpg"
       ]
     }
   ]
@@ -95,7 +209,7 @@ yyhgl: {
       title: "yyhgl_001",
       images: [
         "images/yyhgl_001.jpg",
-        "images/yyhgl_001_hd.jpg"
+        "images/yyhgl_001_v1.jpg"
       ]
     },
 
@@ -103,7 +217,7 @@ yyhgl: {
       title: "yyhgl_002",
       images: [
         "images/yyhgl_002.jpg",
-        "images/yyhgl_002_hd.jpg"
+        "images/yyhgl_002_v1.jpg"
       ]
     },
 
@@ -111,7 +225,7 @@ yyhgl: {
       title: "yyhgl_003",
       images: [
         "images/yyhgl_003.jpg",
-        "images/yyhgl_003_hd.jpg"
+        "images/yyhgl_003_v1.jpg"
       ]
     }
   ]
@@ -124,7 +238,7 @@ yyhgl: {
         title: "maidragon_001",
         images: [
           "images/maidragon_001.jpg",
-          "images/maidragon_001_hd.jpg"
+          "images/maidragon_001_v1.jpg"
         ]
       }
     ]
@@ -138,7 +252,7 @@ yyhgl: {
         title: "onimai_001",
         images: [
           "images/onimai_001.jpg",
-          "images/onimai_001_hd.jpg"
+          "images/onimai_001_v1.jpg"
         ]
       }
     ]
@@ -152,7 +266,7 @@ yyhgl: {
         title: "wataten_001",
         images: [
           "images/wataten_001.jpg",
-          "images/wataten_001_hd.jpg"
+          "images/wataten_001_v1.jpg"
         ]
       }
     ]
@@ -165,15 +279,15 @@ precure: {
       title: "precure_001",
       images: [
         "images/precure_001.jpg",
-        "images/precure_001_hd.jpg"
+        "images/precure_001_v1.jpg"
       ]
     },
 
     {
       title: "precure_002",
-      images: [
+           images: [
         "images/precure_002.jpg",
-        "images/precure_002_hd.jpg"
+        "images/precure_002_v1.jpg"
       ]
     },
 
@@ -181,7 +295,7 @@ precure: {
       title: "precure_003",
       images: [
         "images/precure_003.jpg",
-        "images/precure_003_hd.jpg"
+        "images/precure_003_v1.jpg"
       ]
     }
   ]
@@ -194,7 +308,7 @@ itoar: {
       title: "itoar_001",
       images: [
         "images/itoar_001.jpg",
-        "images/itoar_001_hd.jpg"
+        "images/itoar_001_v1.jpg"
       ]
     },
 
@@ -202,7 +316,7 @@ itoar: {
       title: "itoar_002",
       images: [
         "images/itoar_002.jpg",
-        "images/itoar_002_hd.jpg"
+        "images/itoar_002_v1.jpg"
       ]
     },
 
@@ -210,7 +324,7 @@ itoar: {
       title: "itoar_003",
       images: [
         "images/itoar_003.jpg",
-        "images/itoar_003_hd.jpg"
+        "images/itoar_003_v1.jpg"
       ]
     }
   ]
@@ -223,7 +337,7 @@ lovelive: {
       title: "lovelive_001",
       images: [
         "images/lovelive_001.jpg",
-        "images/lovelive_001_hd.jpg"
+        "images/lovelive_001_v1.jpg"
       ]
     },
 
@@ -231,7 +345,7 @@ lovelive: {
       title: "lovelive_002",
       images: [
         "images/lovelive_002.jpg",
-        "images/lovelive_002_hd.jpg"
+        "images/lovelive_002_v1.jpg"
       ]
     },
 
@@ -239,7 +353,7 @@ lovelive: {
       title: "lovelive_003",
       images: [
         "images/lovelive_003.jpg",
-        "images/lovelive_003_hd.jpg"
+        "images/lovelive_003_v1.jpg"
       ]
     }
   ]
@@ -252,7 +366,7 @@ touhou_project: {
       title: "touhou_project_001",
       images: [
         "images/touhou_project_001.jpg",
-        "images/touhou_project_001_hd.jpg"
+        "images/touhou_project_001_v1.jpg"
       ]
     },
 
@@ -260,7 +374,7 @@ touhou_project: {
       title: "touhou_project_002",
       images: [
         "images/touhou_project_002.jpg",
-        "images/touhou_project_002_hd.jpg"
+        "images/touhou_project_002_v1.jpg"
       ]
     },
 
@@ -268,7 +382,7 @@ touhou_project: {
       title: "touhou_project_003",
       images: [
         "images/touhou_project_003.jpg",
-        "images/touhou_project_003_hd.jpg"
+        "images/touhou_project_003_v1.jpg"
       ]
     }
   ]
@@ -281,7 +395,7 @@ urgirl: {
       title: "urgirl_001",
       images: [
         "images/urgirl_001.jpg",
-        "images/urgirl_001_hd.jpg"
+        "images/urgirl_001_v1.jpg"
       ]
     },
 
@@ -289,7 +403,7 @@ urgirl: {
       title: "urgirl_002",
       images: [
         "images/urgirl_002.jpg",
-        "images/urgirl_002_hd.jpg"
+        "images/urgirl_002_v1.jpg"
       ]
     },
 
@@ -297,7 +411,7 @@ urgirl: {
       title: "urgirl_003",
       images: [
         "images/urgirl_003.jpg",
-        "images/urgirl_003_hd.jpg"
+        "images/urgirl_003_v1.jpg"
       ]
     }
   ]
@@ -310,7 +424,7 @@ k_on: {
       title: "k_on_001",
       images: [
         "images/k_on_001.jpg",
-        "images/k_on_001_hd.jpg"
+        "images/k_on_001_v1.jpg"
       ]
     }
   ]
