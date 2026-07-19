@@ -66,7 +66,7 @@ body{margin:0;font-family:sans-serif;background:#faf7ff;color:#333}
 <div class="notice-item tip">
 <div class="notice-title" data-title="💡 图片说明" onclick="toggleNotice(this)">▼ 💡 图片说明</div>
 <div class="notice-content">
-<p>每张图片通常提供两个版本：</p>
+<p>✨ 每张图片都准备了多个版本，点开看看吧！每张图片通常提供两个版本：</p>
 <p><b>① 原图（默认封面）</b><br>保留原始画质与细节，默认作为封面展示。</p>
 <p><b>② AI 放大高清版</b><br>提升分辨率的同时，可能会改变部分原图质感。两个版本各有特点，可根据自己的喜好选择下载。</p>
 </div>
@@ -75,7 +75,7 @@ body{margin:0;font-family:sans-serif;background:#faf7ff;color:#333}
 <div class="notice-item">
 <div class="notice-title" data-title="关于本站" onclick="toggleNotice(this)">▶ 关于本站</div>
 <div class="notice-content hide">
-<p>本站主要收录我个人喜欢的女性角色、角色组合及相关图片。</p>
+<p>本站主要收录我个人喜欢的角色、角色组合及相关图片。</p>
 <p>收录内容以个人兴趣和整理习惯为标准，并不代表对作品类型或角色关系的官方定义。部分作品本身并非以此为主题，只是其中存在我喜欢的角色或角色互动，因此也会收录相关图片，也包含部分单人图片。</p>
 <p>图片大多来自官方公开发布的宣传图、杂志图等；对于《东方Project》等官方图片相对较少的作品，则会收录较多同人作品。</p>
 <p>本站仅用于个人整理与分享。如有图片涉及版权问题，请联系我，我会及时处理。</p>
@@ -95,6 +95,9 @@ body{margin:0;font-family:sans-serif;background:#faf7ff;color:#333}
 <a class="card" href="album.html?work=onimai"><img src="images/onimai_001.jpg"><div class="info">别当欧尼酱了</div></a>
 <a class="card" href="album.html?work=k_on"><img src="images/k_on_001.jpg"><div class="info">轻音少女</div></a>
 <a class="card" href="album.html?work=itoar"><img src="images/itoar_001.jpg"><div class="info">请问您今天想来点兔子吗</div></a>
+<a class="card" href="album.html?work=elaina"><img src="images/elaina_001.jpg"><div class="info">魔女之旅</div></a>
+<a class="card" href="album.html?work=akebisuniform"><img src="images/akebisuniform_001.jpg"><div class="info">明日同学的水手服</div></a>
+<a class="card" href="album.html?work=suofei"><img src="images/suofei_001.jpg"><div class="info">邻家索菲</div></a>
 <a class="card" href="album.html?work=luckystar"><img src="images/luckystar_001.jpg"><div class="info">幸运星</div></a>
 <a class="card" href="album.html?work=maidragon"><img src="images/maidragon_001.jpg"><div class="info">小林家的龙女仆</div></a>
 </div>
@@ -124,23 +127,4 @@ function searchWorks(){
 
         let title = card.querySelector(".info").textContent.toLowerCase();
 
-        if(title.includes(keyword)){
-
-            card.style.display = "";
-
-        }else{
-
-            card.style.display = "none";
-
-        }
-
-    });
-    let visible = document.querySelectorAll(".card:not([style*='display: none'])");
-
-document.getElementById("noResult").style.display =
-    visible.length ? "none" : "block";
-
-}
-</script>
-</body>
-</html>
+        if(title.includes(keywo
