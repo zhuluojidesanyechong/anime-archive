@@ -285,7 +285,7 @@ precure: {
 
     {
       title: "precure_002",
-           images: [
+      images: [
         "images/precure_002.jpg",
         "images/precure_002_v1.jpg"
       ]

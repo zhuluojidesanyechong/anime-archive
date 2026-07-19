@@ -127,4 +127,23 @@ function searchWorks(){
 
         let title = card.querySelector(".info").textContent.toLowerCase();
 
-        if(title.includes(keywo
+        if(title.includes(keyword)){
+
+            card.style.display = "";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+    let visible = document.querySelectorAll(".card:not([style*='display: none'])");
+
+document.getElementById("noResult").style.display =
+    visible.length ? "none" : "block";
+
+}
+</script>
+</body>
+</html>
