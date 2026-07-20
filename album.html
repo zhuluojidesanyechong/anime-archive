@@ -239,20 +239,6 @@ function closeModal(){
     modal.style.display = "none";
 }
 
-/* 滑动 */
-let startX = 0;
-
-mainImg.addEventListener("touchstart",e=>{
-    startX = e.touches[0].clientX;
-});
-
-mainImg.addEventListener("touchend",e=>{
-    const diff = e.changedTouches[0].clientX - startX;
-
-    if(Math.abs(diff)>50){
-        changeImg(diff>0?-1:1);
-    }
-});
 
 </script>
 
