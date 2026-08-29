@@ -53,6 +53,12 @@ h1{
     right:15px;
     font-size:30px;
     cursor:pointer;
+    user-select:none;
+    z-index:2;
+}
+
+.close:hover{
+    opacity:0.75;
 }
 
 .thumb-bar{
@@ -84,10 +90,22 @@ h1{
     font-size:30px;
     cursor:pointer;
     user-select:none;
+    padding:12px 16px;
+    z-index:2;
+    line-height:1;
+}
+
+.btn:hover{
+    opacity:0.75;
 }
 
 .prev{ left:10px; }
 .next{ right:10px; }
+
+@media (min-width: 900px){
+    .prev{ left:24px; }
+    .next{ right:24px; }
+}
 
 </style>
 </head>
@@ -184,6 +202,7 @@ function openAlbum(i){
     albumIndex = i;
     imageIndex = 0;
     modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
     update();
 }
 
@@ -194,7 +213,8 @@ function update(){
 
     mainImg.src = album.images[imageIndex];
 
-    downloadBtn.onclick = () => {
+    downloadBtn.onclick = (event) => {
+        event.preventDefault();
         const url = album.images[imageIndex];
         const a = document.createElement("a");
         a.href = url;
@@ -237,7 +257,29 @@ function changeImg(step){
 /* 关闭 */
 function closeModal(){
     modal.style.display = "none";
+    document.body.style.overflow = "";
 }
+
+/* 电脑端键盘操作 */
+document.addEventListener("keydown", (event) => {
+    if(modal.style.display !== "flex") return;
+
+    if(event.key === "Escape"){
+        closeModal();
+    }else if(event.key === "ArrowLeft"){
+        changeImg(-1);
+    }else if(event.key === "ArrowRight"){
+        changeImg(1);
+    }
+});
+
+/* 点击弹窗空白处关闭 */
+modal.addEventListener("click", (event) => {
+    if(event.target === modal){
+        closeModal();
+    }
+});
+
 
 
 </script>
