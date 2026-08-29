@@ -1,2 +1,2 @@
 # anime-archive
-百合向作品展示网站
+ACG图片分享网站，偏向yuri
