@@ -193,6 +193,8 @@ let imageIndex = 0;
 albums.forEach((album,i)=>{
     const img = document.createElement("img");
     img.src = album.images[0];
+    img.loading = "lazy";
+    img.decoding = "async";
     img.onclick = ()=>openAlbum(i);
     grid.appendChild(img);
 });
@@ -226,12 +228,14 @@ function update(){
 
     album.images.forEach((src,i)=>{
 
-        const img = document.createElement("img");
-        img.src = src;
+    const img = document.createElement("img");
+    img.src = src;
+    img.loading = "lazy";
+    img.decoding = "async";
 
-        if(i === imageIndex){
-            img.classList.add("active");
-        }
+    if(i === imageIndex){
+        img.classList.add("active");
+    }
 
         img.onclick = () => {
             imageIndex = i;
