@@ -189,12 +189,53 @@ box-shadow:0 0 0 3px rgba(180,140,255,.2);
   <div class="info">小林家的龙女仆</div>
 </a>
 </>
-<p id="noResult"
+  <p id="noResult"
    style="display:none;
           text-align:center;
           color:#888;
           padding:30px;">
 没有找到相关作品～
 </p>
+
 <script>
-function toggleNotice(
+function toggleNotice(title){
+ const c=title.nextElementSibling;
+ c.classList.toggle("hide");
+ title.textContent=(c.classList.contains("hide")?"▶ ":"▼ ")+title.dataset.title;
+}
+
+function searchWorks(){
+
+    let keyword = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card){
+
+        let title = card.querySelector(".info").textContent.toLowerCase();
+
+        if(title.includes(keyword)){
+
+            card.style.display = "";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    let visible = document.querySelectorAll(".card:not([style*='display: none'])");
+
+    document.getElementById("noResult").style.display =
+        visible.length ? "none" : "block";
+
+}
+</script>
+
+</body>
+</html>
