@@ -106,7 +106,6 @@ h1{
     .prev{ left:24px; }
     .next{ right:24px; }
 }
-
 </style>
 </head>
 
@@ -122,18 +121,24 @@ h1{
   z-index: 999;
 ">
   <a href="index.html"
-     style="background:rgba(0,0,0,0.5);padding:6px 10px;border-radius:6px;color:white;text-decoration:none;">
+     style="
+       background:rgba(0,0,0,0.5);
+       padding:6px 10px;
+       border-radius:6px;
+       color:white;
+       text-decoration:none;
+     ">
      ← 首页
   </a>
 </div>
 
 <!-- 标题 -->
-<h1 id="title"></h1>
+  <h1 id="title"></h1>
 
-<!-- 缩略图 -->
+<!-- 相册封面 -->
 <div class="grid" id="grid"></div>
 
-<!-- 弹窗 -->
+<!-- 图片弹窗 -->
 <div class="modal" id="modal">
 
     <div class="close" onclick="closeModal()">✕</div>
@@ -189,68 +194,126 @@ const downloadBtn = document.getElementById("downloadBtn");
 let albumIndex = 0;
 let imageIndex = 0;
 
-/* 初始化封面 */
+
+/* =========================
+   初始化相册封面
+========================= */
+
 albums.forEach((album,i)=>{
+
     const img = document.createElement("img");
+
     img.src = album.images[0];
+
+    /* 懒加载 */
     img.loading = "lazy";
     img.decoding = "async";
+
     img.onclick = ()=>openAlbum(i);
+
     grid.appendChild(img);
+
 });
 
-/* 打开相册 */
+
+/* =========================
+   打开相册
+========================= */
+
 function openAlbum(i){
+
     albumIndex = i;
     imageIndex = 0;
+
     modal.style.display = "flex";
+
     document.body.style.overflow = "hidden";
+
     update();
 }
 
-/* 更新 */
+
+/* =========================
+   更新当前图片
+========================= */
+
 function update(){
 
     const album = albums[albumIndex];
 
+    /* 当前图片 */
     mainImg.src = album.images[imageIndex];
-    // 预加载下一张图片
-    const nextIndex = (imageIndex + 1) % album.images.length;
+
+
+    /* =========================
+       预加载下一张图片
+    ========================= */
+
+    const nextIndex =
+        (imageIndex + 1) % album.images.length;
+
     const nextImg = new Image();
+
     nextImg.src = album.images[nextIndex];
 
+
+    /* =========================
+       下载按钮
+    ========================= */
+
     downloadBtn.onclick = (event) => {
+
         event.preventDefault();
+
         const url = album.images[imageIndex];
+
         const a = document.createElement("a");
+
         a.href = url;
+
         a.download = url.split("/").pop();
+
         a.click();
     };
 
-    thumbBar.innerHTML = "";
+
+    /* =========================
+       缩略图
+    ========================= */
+  thumbBar.innerHTML = "";
 
     album.images.forEach((src,i)=>{
 
-    const img = document.createElement("img");
-    img.src = src;
-    img.loading = "lazy";
-    img.decoding = "async";
+        const img = document.createElement("img");
 
-    if(i === imageIndex){
-        img.classList.add("active");
-    }
+        img.src = src;
+
+        img.loading = "lazy";
+        img.decoding = "async";
+
+        if(i === imageIndex){
+            img.classList.add("active");
+        }
 
         img.onclick = () => {
+
             imageIndex = i;
+
             update();
+
         };
 
         thumbBar.appendChild(img);
+
     });
+
 }
 
-/* 切换 */
+
+/* =========================
+   切换图片
+========================= */
+
 function changeImg(step){
 
     const album = albums[albumIndex];
@@ -262,32 +325,115 @@ function changeImg(step){
     update();
 }
 
-/* 关闭 */
+
+/* =========================
+   关闭图片弹窗
+========================= */
+
 function closeModal(){
+
     modal.style.display = "none";
+
     document.body.style.overflow = "";
+
 }
 
-/* 电脑端键盘操作 */
+
+/* =========================
+   电脑端键盘操作
+========================= */
+
 document.addEventListener("keydown", (event) => {
+
     if(modal.style.display !== "flex") return;
 
     if(event.key === "Escape"){
+
         closeModal();
+
     }else if(event.key === "ArrowLeft"){
+
         changeImg(-1);
+
     }else if(event.key === "ArrowRight"){
+
         changeImg(1);
+
     }
+
 });
 
-/* 点击弹窗空白处关闭 */
+
+/* =========================
+   点击弹窗空白处关闭
+========================= */
+
 modal.addEventListener("click", (event) => {
+
     if(event.target === modal){
+
         closeModal();
+
     }
+
 });
 
+
+/* =====================================================
+   返回键处理
+=====================================================
+
+   目标：
+
+   首页
+     ↓
+   作品页
+     ↓
+   看任意数量的相册 / 图片
+     ↓
+   按返回
+     ↓
+   直接回首页
+
+   不让打开相册、切换图片产生新的历史记录。
+
+===================================================== */
+
+
+/*
+   给当前作品页建立一个标记。
+
+   注意：
+   使用 replaceState 而不是 pushState，
+   不会额外增加历史记录。
+*/
+
+history.replaceState(
+    { albumPage: true },
+    "",
+    location.href
+);
+
+
+/*
+   当用户按手机系统返回键、
+   浏览器后退按钮时：
+
+   直接使用 location.replace() 回到首页。
+
+   replace 不会把当前作品页重新塞进历史记录，
+   因此不会出现：
+
+   首页 → 作品页 → 首页 → 作品页
+
+   这种来回循环。
+*/
+
+window.addEventListener("popstate", () => {
+
+    location.replace("index.html");
+
+});
 
 
 </script>
