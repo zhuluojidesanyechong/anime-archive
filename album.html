@@ -214,6 +214,10 @@ function update(){
     const album = albums[albumIndex];
 
     mainImg.src = album.images[imageIndex];
+    // 预加载下一张图片
+    const nextIndex = (imageIndex + 1) % album.images.length;
+    const nextImg = new Image();
+    nextImg.src = album.images[nextIndex];
 
     downloadBtn.onclick = (event) => {
         event.preventDefault();
