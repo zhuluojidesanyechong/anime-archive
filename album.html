@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Album</title>
 
 <style>
+
 body{
     margin:0;
     font-family:sans-serif;
@@ -13,47 +17,95 @@ body{
     color:white;
 }
 
+
+/* =========================
+   标题
+========================= */
+
 h1{
     text-align:center;
     padding:20px;
 }
 
+
+/* =========================
+   相册网格
+========================= */
+
 .grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+
+    grid-template-columns:
+        repeat(auto-fill,minmax(180px,1fr));
+
     gap:15px;
+
     padding:15px;
 }
 
 .grid img{
+
     width:100%;
+
     border-radius:8px;
+
     cursor:pointer;
 }
 
+
+/* =========================
+   图片弹窗
+========================= */
+
 .modal{
+
     position:fixed;
+
     inset:0;
+
     background:rgba(0,0,0,0.9);
+
     display:none;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
 }
 
+
+/* 当前大图 */
+
 .main-img{
+
     max-width:90%;
+
     max-height:70vh;
+
     border-radius:10px;
 }
 
+
+/* =========================
+   关闭按钮
+========================= */
+
 .close{
+
     position:absolute;
+
     top:10px;
+
     right:15px;
+
     font-size:30px;
+
     cursor:pointer;
+
     user-select:none;
+
     z-index:2;
 }
 
@@ -61,37 +113,69 @@ h1{
     opacity:0.75;
 }
 
+
+/* =========================
+   缩略图
+========================= */
+
 .thumb-bar{
+
     display:flex;
+
     gap:8px;
+
     margin-top:15px;
+
     overflow-x:auto;
+
     max-width:90%;
 }
 
 .thumb-bar img{
+
     width:70px;
+
     height:70px;
+
     object-fit:cover;
+
     border-radius:6px;
+
     opacity:0.5;
+
     cursor:pointer;
 }
 
 .thumb-bar img.active{
+
     opacity:1;
+
     outline:2px solid white;
 }
 
+
+/* =========================
+   左右切换按钮
+========================= */
+
 .btn{
+
     position:absolute;
+
     top:50%;
+
     transform:translateY(-50%);
+
     font-size:30px;
+
     cursor:pointer;
+
     user-select:none;
+
     padding:12px 16px;
+
     z-index:2;
+
     line-height:1;
 }
 
@@ -99,209 +183,388 @@ h1{
     opacity:0.75;
 }
 
-.prev{ left:10px; }
-.next{ right:10px; }
-
-@media (min-width: 900px){
-    .prev{ left:24px; }
-    .next{ right:24px; }
+.prev{
+    left:10px;
 }
+
+.next{
+    right:10px;
+}
+
+
+@media (min-width:900px){
+
+    .prev{
+        left:24px;
+    }
+
+    .next{
+        right:24px;
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- 顶部导航 -->
+
+<!-- =========================
+     顶部导航
+========================= -->
+
 <div style="
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  display: flex;
-  gap: 10px;
-  z-index: 999;
+    position:fixed;
+    top:10px;
+    left:10px;
+    display:flex;
+    gap:10px;
+    z-index:999;
 ">
-  <a href="index.html"
-     style="
-       background:rgba(0,0,0,0.5);
-       padding:6px 10px;
-       border-radius:6px;
-       color:white;
-       text-decoration:none;
-     ">
-     ← 首页
-  </a>
-</div>
 
-<!-- 标题 -->
-  <h1 id="title"></h1>
-
-<!-- 相册封面 -->
-<div class="grid" id="grid"></div>
-
-<!-- 图片弹窗 -->
-<div class="modal" id="modal">
-
-    <div class="close" onclick="closeModal()">✕</div>
-
-    <div class="btn prev" onclick="changeImg(-1)">❮</div>
-
-    <img class="main-img" id="mainImg">
-
-    <a id="downloadBtn"
-       href="#"
-       style="
-         position:absolute;
-         bottom:20px;
-         right:20px;
-         background:rgba(0,0,0,0.6);
-         color:white;
-         padding:6px 10px;
-         border-radius:6px;
-         text-decoration:none;
-       ">
-       ⬇ 下载
+    <a
+        href="index.html"
+        id="homeLink"
+        style="
+            background:rgba(0,0,0,0.5);
+            padding:6px 10px;
+            border-radius:6px;
+            color:white;
+            text-decoration:none;
+        "
+    >
+        ← 首页
     </a>
 
-    <div class="btn next" onclick="changeImg(1)">❯</div>
+</div>
 
-    <div class="thumb-bar" id="thumbBar"></div>
+
+<!-- =========================
+     标题
+========================= -->
+
+<h1 id="title"></h1>
+
+
+<!-- =========================
+     相册封面
+========================= -->
+
+<div
+    class="grid"
+    id="grid">
+</div>
+
+
+<!-- =========================
+     图片弹窗
+========================= -->
+
+<div
+    class="modal"
+    id="modal"
+>
+
+
+    <!-- 关闭 -->
+
+    <div
+        class="close"
+        onclick="closeModal()"
+    >
+        ✕
+    </div>
+
+
+    <!-- 上一张 -->
+
+    <div
+        class="btn prev"
+        onclick="changeImg(-1)"
+    >
+        ❮
+    </div>
+
+
+    <!-- 当前图片 -->
+
+    <img
+        class="main-img"
+        id="mainImg"
+    >
+
+
+    <!-- 下载 -->
+  <a
+        id="downloadBtn"
+        href="#"
+        style="
+            position:absolute;
+            bottom:20px;
+            right:20px;
+            background:rgba(0,0,0,0.6);
+            color:white;
+            padding:6px 10px;
+            border-radius:6px;
+            text-decoration:none;
+        "
+    >
+        ⬇ 下载
+    </a>
+
+
+    <!-- 下一张 -->
+
+    <div
+        class="btn next"
+        onclick="changeImg(1)"
+    >
+        ❯
+    </div>
+
+
+    <!-- 缩略图 -->
+
+    <div
+        class="thumb-bar"
+        id="thumbBar"
+    >
+    </div>
+
 
 </div>
+
 
 <script src="data.js"></script>
 
+
 <script>
 
-const params = new URLSearchParams(location.search);
-const workName = params.get("work");
-const work = works[workName];
+
+/* =========================================================
+   获取作品
+========================================================= */
+
+const params =
+    new URLSearchParams(location.search);
+
+const workName =
+    params.get("work");
+
+const work =
+    works[workName];
+
 
 if(!work){
-    document.body.innerHTML="<h1>作品不存在</h1>";
+
+    document.body.innerHTML =
+        "<h1>作品不存在</h1>";
+
     throw new Error("作品不存在");
+
 }
 
-document.getElementById("title").textContent = work.title;
 
-const albums = work.albums;
+document.getElementById("title").textContent =
+    work.title;
 
-const grid = document.getElementById("grid");
-const modal = document.getElementById("modal");
-const mainImg = document.getElementById("mainImg");
-const thumbBar = document.getElementById("thumbBar");
-const downloadBtn = document.getElementById("downloadBtn");
+
+const albums =
+    work.albums;
+
+
+const grid =
+    document.getElementById("grid");
+
+const modal =
+    document.getElementById("modal");
+
+const mainImg =
+    document.getElementById("mainImg");
+
+const thumbBar =
+    document.getElementById("thumbBar");
+
+const downloadBtn =
+    document.getElementById("downloadBtn");
+
+const homeLink =
+    document.getElementById("homeLink");
+
 
 let albumIndex = 0;
+
 let imageIndex = 0;
 
 
-/* =========================
+/* =========================================================
    初始化相册封面
-========================= */
+========================================================= */
 
 albums.forEach((album,i)=>{
 
-    const img = document.createElement("img");
+    const img =
+        document.createElement("img");
 
-    img.src = album.images[0];
+
+    img.src =
+        album.images[0];
+
 
     /* 懒加载 */
-    img.loading = "lazy";
-    img.decoding = "async";
 
-    img.onclick = ()=>openAlbum(i);
+    img.loading =
+        "lazy";
+
+    img.decoding =
+        "async";
+
+
+    /* 点击打开相册 */
+
+    img.onclick =
+        ()=>openAlbum(i);
+
 
     grid.appendChild(img);
 
 });
 
 
-/* =========================
+/* =========================================================
    打开相册
-========================= */
+========================================================= */
 
 function openAlbum(i){
 
-    albumIndex = i;
-    imageIndex = 0;
+    albumIndex =
+        i;
 
-    modal.style.display = "flex";
+    imageIndex =
+        0;
 
-    document.body.style.overflow = "hidden";
+
+    modal.style.display =
+        "flex";
+
+
+    document.body.style.overflow =
+        "hidden";
+
 
     update();
+
 }
 
 
-/* =========================
-   更新当前图片
-========================= */
-
+/* =========================================================
+   更新图片
+========================================================= */
 function update(){
 
-    const album = albums[albumIndex];
+    const album =
+        albums[albumIndex];
+
 
     /* 当前图片 */
-    mainImg.src = album.images[imageIndex];
+
+    mainImg.src =
+        album.images[imageIndex];
 
 
-    /* =========================
+    /* =====================================================
        预加载下一张图片
-    ========================= */
+    ===================================================== */
 
     const nextIndex =
-        (imageIndex + 1) % album.images.length;
-
-    const nextImg = new Image();
-
-    nextImg.src = album.images[nextIndex];
+        (imageIndex + 1)
+        % album.images.length;
 
 
-    /* =========================
+    const nextImg =
+        new Image();
+
+
+    nextImg.src =
+        album.images[nextIndex];
+
+
+    /* =====================================================
        下载按钮
-    ========================= */
+    ===================================================== */
 
-    downloadBtn.onclick = (event) => {
+    downloadBtn.onclick =
+        (event)=>{
 
-        event.preventDefault();
-
-        const url = album.images[imageIndex];
-
-        const a = document.createElement("a");
-
-        a.href = url;
-
-        a.download = url.split("/").pop();
-
-        a.click();
-    };
+            event.preventDefault();
 
 
-    /* =========================
+            const url =
+                album.images[imageIndex];
+
+
+            const a =
+                document.createElement("a");
+
+
+            a.href =
+                url;
+
+
+            a.download =
+                url.split("/").pop();
+
+
+            a.click();
+
+        };
+
+
+    /* =====================================================
        缩略图
-    ========================= */
-  thumbBar.innerHTML = "";
+    ===================================================== */
+
+    thumbBar.innerHTML =
+        "";
+
 
     album.images.forEach((src,i)=>{
 
-        const img = document.createElement("img");
+        const img =
+            document.createElement("img");
 
-        img.src = src;
 
-        img.loading = "lazy";
-        img.decoding = "async";
+        img.src =
+            src;
+
+
+        img.loading =
+            "lazy";
+
+        img.decoding =
+            "async";
+
 
         if(i === imageIndex){
+
             img.classList.add("active");
+
         }
 
-        img.onclick = () => {
 
-            imageIndex = i;
+        img.onclick =
+            ()=>{
 
-            update();
+                imageIndex =
+                    i;
 
-        };
+                update();
+
+            };
+
 
         thumbBar.appendChild(img);
 
@@ -310,133 +573,263 @@ function update(){
 }
 
 
-/* =========================
+/* =========================================================
    切换图片
-========================= */
+========================================================= */
 
 function changeImg(step){
 
-    const album = albums[albumIndex];
+    const album =
+        albums[albumIndex];
+
 
     imageIndex =
-        (imageIndex + step + album.images.length)
+        (
+            imageIndex
+            + step
+            + album.images.length
+        )
         % album.images.length;
 
+
     update();
+
 }
 
 
-/* =========================
+/* =========================================================
    关闭图片弹窗
-========================= */
+========================================================= */
 
 function closeModal(){
 
-    modal.style.display = "none";
+    modal.style.display =
+        "none";
 
-    document.body.style.overflow = "";
+
+    document.body.style.overflow =
+        "";
 
 }
 
 
-/* =========================
-   电脑端键盘操作
-========================= */
+/* =========================================================
+   首页按钮
+=========================================================
 
-document.addEventListener("keydown", (event) => {
+   使用 location.replace()
 
-    if(modal.style.display !== "flex") return;
+   这样从作品页回首页时，
+   当前作品页不会继续留在历史记录中。
 
-    if(event.key === "Escape"){
+========================================================= */
 
-        closeModal();
+homeLink.addEventListener(
+    "click",
+    function(event){
 
-    }else if(event.key === "ArrowLeft"){
+        event.preventDefault();
 
-        changeImg(-1);
-
-    }else if(event.key === "ArrowRight"){
-
-        changeImg(1);
-
-    }
-
-});
-
-
-/* =========================
-   点击弹窗空白处关闭
-========================= */
-
-modal.addEventListener("click", (event) => {
-
-    if(event.target === modal){
-
-        closeModal();
+        location.replace("index.html");
 
     }
-
-});
-
-
-/* =====================================================
-   返回键处理
-=====================================================
-
-   目标：
-
-   首页
-     ↓
-   作品页
-     ↓
-   看任意数量的相册 / 图片
-     ↓
-   按返回
-     ↓
-   直接回首页
-
-   不让打开相册、切换图片产生新的历史记录。
-
-===================================================== */
-
-
-/*
-   给当前作品页建立一个标记。
-
-   注意：
-   使用 replaceState 而不是 pushState，
-   不会额外增加历史记录。
-*/
-
-history.replaceState(
-    { albumPage: true },
-    "",
-    location.href
 );
 
 
+/* =========================================================
+   电脑端键盘
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        /*
+           弹窗没有打开时，
+           不处理左右键。
+        */
+
+        if(modal.style.display !== "flex"){
+
+            return;
+
+        }
+
+
+        /* ESC */
+
+        if(event.key === "Escape"){
+
+            closeModal();
+
+        }
+
+
+        /* 左 */
+
+        else if(event.key === "ArrowLeft"){
+
+            changeImg(-1);
+
+        }
+
+
+        /* 右 */
+
+        else if(event.key === "ArrowRight"){
+
+            changeImg(1);
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   点击弹窗空白处关闭
+========================================================= */
+
+modal.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === modal){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   浏览器 / 手机返回键
+=========================================================
+
+   这里不使用 pushState，
+   也不使用 replaceState。
+
+   图片和相册的切换本身不会制造历史记录，
+   所以正常情况下：
+
+       首页
+        ↓
+       作品页
+        ↓
+       返回
+        ↓
+       首页
+
+   就可以直接工作。
+
+   这里额外处理一个情况：
+
+   如果图片弹窗打开时用户按返回，
+   先关闭弹窗，而不是离开作品页。
+
+========================================================= */
+
+
 /*
-   当用户按手机系统返回键、
-   浏览器后退按钮时：
+   为当前页面增加一个“弹窗状态”。
 
-   直接使用 location.replace() 回到首页。
-
-   replace 不会把当前作品页重新塞进历史记录，
-   因此不会出现：
-
-   首页 → 作品页 → 首页 → 作品页
-
-   这种来回循环。
+   只有打开弹窗的时候才使用一次 pushState。
 */
 
-window.addEventListener("popstate", () => {
+let modalHistoryAdded = false;
 
-    location.replace("index.html");
 
-});
+/* =========================================================
+   修改打开相册函数
+========================================================= */
+
+const originalOpenAlbum =
+    openAlbum;
+
+
+/*
+   重新定义打开相册函数。
+
+   这里不会改变 URL，
+   只是在浏览器历史中增加一个当前页面状态。
+*/
+
+openAlbum = function(i){
+
+    originalOpenAlbum(i);
+
+
+    /*
+       防止连续重复添加。
+    */
+
+    if(!modalHistoryAdded){
+
+        history.pushState(
+            {
+                modalOpen:true
+            },
+            "",
+            location.href
+        );
+
+        modalHistoryAdded =
+            true;
+
+    }
+
+};
+
+
+/* =========================================================
+   返回键
+========================================================= */
+
+window.addEventListener(
+    "popstate",
+    function(){
+
+        /*
+           如果弹窗是打开状态：
+
+           返回一次
+           ↓
+           关闭弹窗
+
+           不离开作品页。
+           */
+
+        if(modalHistoryAdded){
+
+            modalHistoryAdded =
+                false;
+
+            closeModal();
+
+            return;
+
+        }
+
+
+        /*
+           如果没有弹窗：
+
+           直接回首页。
+
+           replace 不会把当前作品页重新加入历史。
+        */
+
+        location.replace("index.html");
+
+    }
+);
 
 
 </script>
 
+
 </body>
+
 </html>
